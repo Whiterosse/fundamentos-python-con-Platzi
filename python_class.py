@@ -377,6 +377,7 @@ else:
 
 # Ejercicio 5: Escribir un programa que solicite al usuario ingresar un número y determine si es divisible por 3, por 5 o por ambos.
 
+"""
 valor = input("ingresa un valor a evaluar: ")
 n = int(valor)
 
@@ -388,10 +389,37 @@ elif n % 5 == 0:
     print("El numero es divisible entre 5")
 else:
     print("El numero no es divisible")
+"""
 
+# Ejercicio 6: Escribir un programa que solicite al usuario ingresar su calificación y determine si aprobó o reprobó,
+#  considerando que la calificación mínima para aprobar es 60.
+"""
+nota = int(input("Ingresar nota estudiante: "))
+nota_minima = 60
 
-# Ejercicio 6: Escribir un programa que solicite al usuario ingresar su calificación y determine si aprobó o reprobó, considerando que la calificación mínima para aprobar es 60.
+if nota >= nota_minima:
+    print("El estudiante APROBÓ")
+else:
+    print(" El estudiante REPROBÓ")
+"""
+
 # Ejercicio 7: Escribir un programa que solicite al usuario ingresar un número y determine si es un número primo o no.
+
+dato = int(input("ingresa numero a evaluar: "))
+es_primo = True
+
+if dato <= 1:
+    print("El numero ingresado no es válido")
+else:
+    for i in range(2, dato):
+        if dato % i == 0:
+            es_primo = False
+            break
+
+    if es_primo:
+        print(f"El numero ingresado es: {dato} y es primo")
+    else:
+        print(f"El numero ingresado es: {dato} y no es primo")
 # Ejercicio 8: Escribir un programa que solicite al usuario ingresar su salario y determine si es elegible para recibir un aumento, considerando que el salario mínimo para ser elegible es de $1000.
 # Ejercicio 9: Escribir un programa que solicite al usuario ingresar un número y determine si es un número perfecto o no, considerando que un número perfecto es aquel que es igual a la suma de sus divisores propios.
 # Ejercicio 10: Escribir un programa que solicite al usuario ingresar su año de nacimiento y determine su signo zodiacal, considerando las fechas correspondientes a cada signo.
