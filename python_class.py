@@ -405,6 +405,7 @@ else:
 
 # Ejercicio 7: Escribir un programa que solicite al usuario ingresar un número y determine si es un número primo o no.
 
+"""
 dato = int(input("ingresa numero a evaluar: "))
 es_primo = True
 
@@ -420,6 +421,77 @@ else:
         print(f"El numero ingresado es: {dato} y es primo")
     else:
         print(f"El numero ingresado es: {dato} y no es primo")
+"""
+
+# DIA 3 - CLASES 18 - 21
+
+# inicio de condicion MATCH
+
+""" La condicion MATCH es una estructura de control de flujo que permite comparar un valor con diferentes patrones
+    y ejecutar un bloque de código correspondiente al patrón que coincida. Es similar a la estructura switch-case en otros
+    lenguajes de programación, pero con una sintaxis más flexible y poderosa."""
+
+# ejercicio: usando la condicion math pero con string. Realiza una busqueda en los casos de usos
+
+"""
+
+nombres = input(" Ingresa el nombre del estudiante: ")
+
+match nombres:
+    case "camilo":
+        print("el estudiante pertenece a la institucion")
+
+    case "juan":
+        print("el estudiante pertenece a la institucion")
+
+    case "emiliano":
+        print("el estudiante pertenece a la institucion")
+
+    case "johana":
+        print("el estudiante pertenece a la institucion")
+
+    case _:
+        print("el estudiante no existe")
+"""
+
+# bucle While // repetirá instrucciones mientras la variable sea verdadera
+"""
+i = 1
+while i < 10:
+    print(i)
+    i += 1
+else:
+    print(" i es menor a 10")
+"""
+
+# bucle for
+
+"""
+palabra = "python"
+
+for letra in palabra:
+    print(letra)
+
+frutas = ["Apple", "Orange", "Banana"]
+
+for fruta in frutas:
+    print(fruta)
+
+
+print("-----------------------------------------")
+
+for i in range(10):
+    print(i)
+"""
+# ejercicio. Recorre una lista de frutas y cada una sumarle un adjetivo
+
+frutas = ["manzana", "pera", "banano"]
+adjetivos = ["delicioso", "rico"]
+
+for fruta in frutas:
+    for adjetivo in adjetivos:
+        print(fruta, adjetivo)
+
 # Ejercicio 8: Escribir un programa que solicite al usuario ingresar su salario y determine si es elegible para recibir un aumento, considerando que el salario mínimo para ser elegible es de $1000.
 # Ejercicio 9: Escribir un programa que solicite al usuario ingresar un número y determine si es un número perfecto o no, considerando que un número perfecto es aquel que es igual a la suma de sus divisores propios.
 # Ejercicio 10: Escribir un programa que solicite al usuario ingresar su año de nacimiento y determine su signo zodiacal, considerando las fechas correspondientes a cada signo.
