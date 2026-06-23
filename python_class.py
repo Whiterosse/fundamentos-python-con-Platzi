@@ -529,3 +529,85 @@ else:
 # Ejercicio 10: Escribir un programa que solicite al usuario ingresar su año de nacimiento y determine su signo zodiacal,
 #  considerando las fechas correspondientes a cada signo.
 # Tu nuevo mini-reto Emistreaming: Escribe un bucle for que recorra una lista con los nombres de tus productos (["Netflix", "Max", "Disney+"]) e imprima un mensaje para cada uno (Ej: "Cargando inventario de: Netflix").
+
+# BAD CODE, PLEASE CORRECTION SOON (22-06-2026)
+
+"""
+fecha = int(input("Ingresa tu fecha de nacimiento (DD/MM): "))
+
+signos = {
+    "Aries": "21 de marzo – 20 de abril",
+    "Tauro": "21 de abril – 20 de mayo",
+    "Géminis": "21 de mayo – 20 de junio",
+    "Cáncer": "21 de junio – 22 de julio",
+    "Leo": "23 de julio – 23 de agosto",
+    "Virgo": "24 de agosto – 23 de septiembre",
+    "Libra": "24 de septiembre – 23 de octubre",
+    "Escorpio": "24 de octubre – 22 de noviembre",
+    "Sagitario": "22 de noviembre – 21 de diciembre",
+    "Capricornio": "22 de diciembre – 20 de enero",
+    "Acuario": "21 de enero – 19 de febrero",
+    "Piscis": "20 de febrero – 20 de marzo",
+}
+
+for i in signos():
+    if i == signos:
+        print(signos[i])
+        break
+    else:
+        print("Tu signo no es valido")
+"""
+
+# GOOD CODE FOR IA GENERATE
+
+from datetime import datetime
+
+# 1. Pedimos la fecha en un formato fijo (Día/Mes)
+fecha_usuario_str = input("Ingresa tu fecha de nacimiento (DD/MM): ")
+
+# Convertimos la entrada del usuario en un objeto de fecha real (asumiendo un año cualquiera, ej. 2000)
+# Esto nos permite hacer comparaciones de "mayor" o "menor"
+fecha_usuario = datetime.strptime(fecha_usuario_str + "/2000", "%d/%m/%Y")
+
+# 2. Tu diccionario, pero guardando las fechas límite como tuplas (Mes, Día)
+# Esto mapea el signo con: ((mes_inicio, dia_inicio), (mes_fin, dia_fin))
+signos = {
+    "Aries": ((3, 21), (4, 20)),
+    "Tauro": ((4, 21), (5, 20)),
+    "Géminis": ((5, 21), (6, 20)),
+    "Cáncer": ((6, 21), (7, 22)),
+    "Leo": ((7, 23), (8, 23)),
+    "Virgo": ((8, 24), (9, 23)),
+    "Libra": ((9, 24), (10, 23)),
+    "Escorpio": ((10, 24), (11, 22)),
+    "Sagitario": ((11, 23), (12, 21)),
+    "Capricornio": ((12, 22), (1, 20)),
+    "Acuario": ((1, 21), (2, 19)),
+    "Piscis": ((2, 20), (3, 20)),
+}
+
+signo_encontrado = None
+
+# 3. ¡Tu lógica en acción! Recorremos el diccionario hasta encontrar el rango correcto
+for signo, (inicio, fin) in signos.items():
+    # Creamos objetos de fecha reales para el inicio y fin de cada signo
+    fecha_inicio = datetime(2000, inicio[0], inicio[1])
+    fecha_fin = datetime(2000, fin[0], fin[1])
+
+    # Caso especial: Capricornio cruza el año (de diciembre a enero)
+    if inicio[0] > fin[0]:
+        # Si la fecha es después del 22 de Dic O antes del 20 de Ene
+        if fecha_usuario >= fecha_inicio or fecha_usuario <= datetime(2000, 1, 20):
+            signo_encontrado = signo
+            break
+    # Caso normal: El signo empieza y termina en el mismo año (ej. Aries en marzo/abril)
+    else:
+        if fecha_inicio <= fecha_usuario <= fecha_fin:
+            signo_encontrado = signo
+            break  # Encontramos el signo, detenemos el bucle
+
+# 4. Mostramos el resultado
+if signo_encontrado:
+    print(f"Tu signo es: {signo_encontrado}")
+else:
+    print("Fecha no válida.")
