@@ -560,6 +560,7 @@ for i in signos():
 
 # GOOD CODE FOR IA GENERATE
 
+"""
 from datetime import datetime
 
 # 1. Pedimos la fecha en un formato fijo (Día/Mes)
@@ -611,3 +612,114 @@ if signo_encontrado:
     print(f"Tu signo es: {signo_encontrado}")
 else:
     print("Fecha no válida.")
+
+"""
+# ejemplo mas facil:
+
+"""
+# 1. Pedimos los datos y los convertimos a números (enteros)
+dia = int(input("Ingresa tu día de nacimiento (1-31): "))
+mes = int(input("Ingresa tu mes de nacimiento en número (1-12): "))
+
+signo = ""
+
+# 2. Evaluamos los rangos mes por mes
+if mes == 3:
+    signo = "Aries" if dia >= 21 else "Piscis"
+elif mes == 4:
+    signo = "Tauro" if dia >= 21 else "Aries"
+elif mes == 5:
+    signo = "Géminis" if dia >= 21 else "Tauro"
+elif mes == 6:
+    signo = "Cáncer" if dia >= 21 else "Géminis"
+elif mes == 7:
+    signo = "Leo" if dia >= 23 else "Cáncer"
+elif mes == 8:
+    signo = "Virgo" if dia >= 24 else "Leo"
+elif mes == 9:
+    signo = "Libra" if dia >= 24 else "Virgo"
+elif mes == 10:
+    signo = "Escorpio" if dia >= 24 else "Libra"
+elif mes == 11:
+    signo = "Sagitario" if dia >= 23 else "Escorpio"
+elif mes == 12:
+    signo = "Capricornio" if dia >= 22 else "Sagitario"
+elif mes == 1:
+    signo = "Acuario" if dia >= 21 else "Capricornio"
+elif mes == 2:
+    signo = "Piscis" if dia >= 20 else "Acuario"
+else:
+    signo = "Mes no válido"
+
+# 3. Mostramos el resultado
+if signo != "Mes no válido":
+    print(f"Tu signo zodiacal es: {signo}")
+else:
+    print("Hubo un error con la fecha ingresada.")
+
+"""
+# Tuplas (no se pueden cambiar, ejemplo un ID)
+
+"""
+tupla1 = (1, 2, 3)
+tupla2 = (4, 5, 6)
+tupla3 = tupla1 + tupla2
+tupla1.extense(tupla2)
+print(tupla3)
+print(tupla1)
+"""
+
+# Diccionario (son coleccion de clave y valor)
+"""
+
+auto = {"Marca": "Renault", "color": "Rojo", "Año": 2027}
+
+print(auto)
+print(auto["color"])
+print(auto.get("Marca"))
+
+# si solo deseo conocer las llaves del diccionario (keys)
+# Al igual pasa con los valores (value)
+
+print(auto.keys())
+print(auto.values())
+
+if "Marca" in auto:
+    print("Esta marca esta registrada ")
+
+# para modificar valor, se hace similar al agregar valor a una variable
+
+auto["color"] = "Verde"
+print(auto)
+
+# si deseo agregar una informacion mas al diccionario:
+
+auto["modelo"] = "Nuevo"
+print(auto)
+
+print("----------")
+
+for k in auto.keys():
+    print(k)
+print("------------")
+for v in auto.values():
+    print(v)
+
+# para imprimir ambas al mismo tiempo se usa items
+
+print("--------------")
+
+for k, v in auto.items():
+    print(k, v)
+
+"""
+
+# Diccionario anidado
+
+familia = {
+    "hijo1": {"nombre": "Emiliano", "edad": 4, "madre": "Johana"},
+    "hijo2": {"nombre": "Ismael", "edad": 0, "madre": "fernanda"},
+    "hijo3": {"nombre": "Juan Jose", "edad": 10, "madre": "andrea"},
+}
+
+print(familia["hijo1"]["nombre"])
