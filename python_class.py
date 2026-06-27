@@ -716,6 +716,7 @@ for k, v in auto.items():
 
 # Diccionario anidado
 
+"""
 familia = {
     "hijo1": {"nombre": "Emiliano", "edad": 4, "madre": "Johana"},
     "hijo2": {"nombre": "Ismael", "edad": 0, "madre": "fernanda"},
@@ -723,3 +724,118 @@ familia = {
 }
 
 print(familia["hijo1"]["nombre"])
+"""
+
+# funciones = solo se ejecuta cuando lo llamamos, sirve para reutilizar codigo
+
+
+"""
+def mi_funcion():
+    print("Aqui mi primera vez con funciones en PY")
+
+
+mi_funcion()
+
+nombre = input("Dame tu nombre: ")
+
+
+def saludo(nombre):
+    print("hola", nombre)
+
+
+saludo(nombre)
+"""
+# sumar, restar y dividir con funciones
+
+"""
+
+def sumar(a, b):
+    return a + b
+
+
+def restar(a, b):
+    return a - b
+
+
+def dividir(a, b):
+    return a / b
+
+
+def multiplicar(a, b):
+    return a * b
+
+
+valor1 = int(input("Ingresa valor a evaluar: "))
+valor2 = int(input("Ingresa valor a evaluar: "))
+
+operacion = input("Que deseas hacer? + / - * : ")
+
+if operacion == "+":
+    print(sumar(valor1, valor2))
+elif operacion == "-":
+    print(restar(valor1, valor2))
+elif operacion == "/":
+    print(dividir(valor1, valor2))
+elif operacion == "*":
+    print(multiplicar(valor1, valor2))
+else:
+    print("Operacion invalida ")
+"""
+# mismo ejercicio pero con lambda (ejemplo practico en calculadora)
+"""
+suma = lambda a, b: a + b
+resta = lambda a, b: a - b
+multiplica = lambda a, b: a * b
+divide = lambda a, b: a / b
+
+valor1 = int(input("Ingresa valor a evaluar: "))
+valor2 = int(input("Ingresa valor a evaluar: "))
+
+operacion = input("Que deseas hacer? + / - * : ")
+
+if operacion == "+":
+    print(suma(valor1, valor2))
+elif operacion == "-":
+    print(resta(valor1, valor2))
+elif operacion == "/":
+    print(divide(valor1, valor2))
+elif operacion == "*":
+    print(multiplica(valor1, valor2))
+else:
+    print("Operacion invalida ")
+"""
+
+# uso de manejo de errores try, except and finally
+
+"""
+import operadores
+
+try:
+    print(operadores.dividir(7, 0))
+except ZeroDivisionError:
+    print("operacion invalida ")
+finally:
+    print("esto no hizo nada o hizo todo ")
+"""
+
+# EJERCICIO PRACTICO TRY, EXCEPT
+# haz un capturador de contraseña
+
+
+def cap_contraseña():
+    try:
+        contraseña = input("Ingresa contraseña, minimo 6 caracteres: ")
+
+        if len(contraseña) < 6:
+            raise ValueError("La contraseña es demasiado corta")
+        print("contraseña guardada con exito")
+
+    except ValueError as error:
+        print(f"error de validacion {error}")
+
+
+cap_contraseña()
+
+# Para leer archivos desde python se usa with open(parameters) as f:
+
+# with open(archivo.txt, "r"):
