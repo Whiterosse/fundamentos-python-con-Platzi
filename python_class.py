@@ -821,7 +821,7 @@ finally:
 # EJERCICIO PRACTICO TRY, EXCEPT
 # haz un capturador de contraseña
 
-
+"""
 def cap_contraseña():
     try:
         contraseña = input("Ingresa contraseña, minimo 6 caracteres: ")
@@ -835,7 +835,33 @@ def cap_contraseña():
 
 
 cap_contraseña()
+"""
+
+# REALIZAR CONVERTIDOR DE TEMPERATURA F - C
+"""
+
+temperatura = float(input("Ingresa valor a convertir: "))
+grado = input("(F) Fahrenheit ó (C)Celsius: ").upper()
+
+
+if grado == "C":
+    celsius = (temperatura - 32) / 1.8
+    print(f"la temperatura es igual a {celsius}")
+elif grado == "F":
+    fahrenheit = (temperatura * 1.8) + 32
+    print(f"la temperatura es igual a {fahrenheit}")
+else:
+    print("ingresa un valor correcto")
+"""
 
 # Para leer archivos desde python se usa with open(parameters) as f:
-
+# r = read / leer
+# w = escritura
+# x = crear
 # with open(archivo.txt, "r"):
+
+try:
+    with open("archivo.txt", "r") as f:
+        print(f.readline())
+except FileNotFoundError:
+    print("Archivo no encontrado ")
